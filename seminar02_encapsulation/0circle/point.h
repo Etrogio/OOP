@@ -9,7 +9,7 @@
 
 class Point
 {
-public:
+private:
     float mx, my;
     
 public:

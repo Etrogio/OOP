@@ -1,66 +1,12 @@
 #include <iostream>
-#define _USE_MATH_DEFINES
-#include <math.h>
+
 #include "point.h"
+#include "circle.h"
 
 
 using std::cout;
 using std::endl;
 
-class Circle
-{
-private:
-	Point mCenter;
-	float mRadius;
-
-public:
-	Circle(Point aCenter, float aRadius)
-	{
-		mCenter = aCenter;
-		mRadius = aRadius;
-		if (mRadius < 0) mRadius = 0;
-	}
-
-	Circle()
-	{
-		mCenter = {0, 0};
-		mRadius = 1;
-	}
-
-	Circle(const Circle& circle)
-	{
-		mCenter = circle.mCenter;
-		mRadius = circle.mRadius;
-	}
-
-	Point getCenter()
-	{
-		return mCenter;
-	}
-    float getRadius()
-	{
-		return mRadius;
-	}
-
-	float getArea() const
-	{
-		return M_PI*mRadius*mRadius;
-	}
-    float getDistance(const Point& p) const
-	{
-		return sqrt(pow(p.mx - mCenter.mx, 2) + pow(p.my - mCenter.my, 2)) - mRadius;
-	}
-	bool isColliding(const Circle& c) const
-	{
-		if (getDistance(c.mCenter) <= c.mRadius) return 1;
-		else return 0;
-	}
-	void move(const Point& p)
-	{
-		mCenter.mx += p.mx;
-		mCenter.my += p.my;
-	}	
-};
 
 int main()
 {
